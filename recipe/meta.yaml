@@ -1,5 +1,5 @@
 {% set name = "amazon-braket-ocean-plugin" %}
-{% set version = "1.0.10" %}
+{% set version = "1.0.11" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/amazon-braket-ocean-plugin-{{ version }}.tar.gz
-  sha256: 9bdea671fcc59cd8d62df20676dd6e025baea3bb9cef6bc0178c3e720e058c0d
+  sha256: 5fa3cb1588c42696abe8ce08b0a56dbdba92da8ac391b76d59bc52a28ff6b7dc
 
 build:
   noarch: python
@@ -19,7 +19,7 @@ requirements:
     - pip
     - python >=3.7
   run:
-    - amazon-braket-sdk >=1.10.0
+    - amazon-braket-sdk >=1.25.0
     - boltons >=20.0.0
     - boto3 >=1.18.13
     - colorama >=0.4.3
