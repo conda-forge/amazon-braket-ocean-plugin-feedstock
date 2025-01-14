@@ -6,18 +6,18 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/amazon-braket-ocean-plugin-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/amazon-braket-ocean-plugin-{{ version }}.tar.gz
   sha256: 5fa3cb1588c42696abe8ce08b0a56dbdba92da8ac391b76d59bc52a28ff6b7dc
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
     - pip
-    - python >=3.7
+    - python {{ python_min }}
   run:
     - amazon-braket-sdk >=1.25.0
     - boltons >=20.0.0
@@ -26,7 +26,7 @@ requirements:
     - dimod >=0.8.13
     - dwave-cloud-client >=0.9.4
     - jsonref
-    - python >=3.7
+    - python >={{ python_min }}
     - wheel >=0.36.2
 
 test:
@@ -36,6 +36,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/aws/amazon-braket-ocean-plugin-python
